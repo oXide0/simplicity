@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Announcement {
+  id              String                 @id @default(uuid())
+  title           String
+  body            String
+  publicationDate DateTime               @map("publication_date")
+  createdAt       DateTime               @default(now()) @map("created_at")
+  updatedAt       DateTime               @updatedAt @map("updated_at")
+  categories      AnnouncementCategory[]
+
+  @@map("announcements")
+}
+
+model Category {
+  id            Int                    @id @default(autoincrement())
+  name          String                 @unique
+  announcements AnnouncementCategory[]
+
+  @@map("categories")
+}
+
+model AnnouncementCategory {
+  announcementId String       @map("announcement_id")
+  categoryId     Int          @map("category_id")
+  announcement   Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  category       Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([announcementId, categoryId])
+  @@map("announcement_categories")
+}
