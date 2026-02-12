@@ -1,0 +1,104 @@
+.container {
+    max-width: 720px;
+    padding-bottom: 60px;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 16px;
+    transition: color 0.15s ease;
+}
+
+.backLink:hover {
+    color: #1a1a2e;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 24px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 28px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #1a1a2e;
+}
+
+.textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    min-height: 120px;
+    resize: vertical;
+    transition: border-color 0.15s ease;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: #1a1a2e;
+}
+
+.publishBtn {
+    background-color: #eead4b;
+    color: #000;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.15s ease;
+    margin-top: 8px;
+    margin-left: auto;
+    display: block;
+}
+
+.publishBtn:hover {
+    background-color: #e09a35;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+}
