@@ -6,10 +6,11 @@ import { validateAnnouncement } from "../middleware/validation";
 const router = Router();
 
 router.get("/", async (req: Request, res: Response) => {
-    const category = req.query.category ? Number(req.query.category) : undefined;
+    const categoriesParam = req.query.category ? String(req.query.category) : undefined;
+    const categories = categoriesParam ? categoriesParam.split(",").map(Number) : undefined;
     const search = req.query.search ? String(req.query.search) : undefined;
 
-    const announcements = await announcementRepo.findAll({ category, search });
+    const announcements = await announcementRepo.findAll({ categories, search });
     res.json({ data: announcements });
 });
 

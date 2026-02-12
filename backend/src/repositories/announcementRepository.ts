@@ -29,15 +29,15 @@ function toDTO(
     };
 }
 
-export async function findAll(filters?: { category?: number; search?: string }): Promise<AnnouncementDTO[]> {
+export async function findAll(filters?: { categories?: number[]; search?: string }): Promise<AnnouncementDTO[]> {
     const where: Prisma.AnnouncementWhereInput = {};
 
-    if (filters?.category) {
-        where.categories = {
-            some: {
-                categoryId: filters.category,
+    if (filters?.categories && filters.categories.length > 0) {
+        where.AND = filters.categories.map((categoryId) => ({
+            categories: {
+                some: { categoryId },
             },
-        };
+        }));
     }
 
     if (filters?.search) {
